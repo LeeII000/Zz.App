@@ -1,27 +1,86 @@
-Ingame:
-    Sheep:
-
-<Ingame>:
+SCManager:
+    FirstScreen:
+    EndingScreen:
+    OptionScreen:
+        OptionWidget:
+    Ingame:
+        Sheep:
+    
+    
+<FirstScreen>:
+    name: "First"
+    
     size: "360dp","640dp"
     size_hint: None,None
     Image:
-        source:"ingame.png"
+        source:"images/background.png"
+        
+    Button:
+        text: "go to sleep"
+        size: "100dp","30dp"
+        size_hint: None,None
+        pos_hint: {"x" : .37 , "y" : .35}
+        on_release:
+            root.manager.current = "Ingame"  
+        
+<Ingame>:
+    name: "Ingame"
+    
+    size: "360dp","640dp"
+    size_hint: None,None
+    Image:
+        source:"images/ingame.png"
 
     Button:
-        background_normal : "자산 3.png"
+        background_normal : "images/자산 3.png"
         size: "30dp","30dp"
         size_hint: None,None
         pos_hint: {"x" : 0.88 , "y" : .88}
+        on_release:
+            root.manager.transition.direction = 'left'
+            root.manager.current = "Option"
     Button:
-        background_normal : "s자산 6.png"
+        background_normal : "images/s자산 6.png"
         size: "30dp","30dp"
         size_hint: None,None
         pos_hint: {"x" : 0.78 , "y" : .88}
-
-
-
-            
-
-    
         
+<EndingScreen>:
+    name: "Ending"
     
+    size: "360dp","640dp"
+    size_hint: None,None
+    Image:
+        source:"images/background.png"
+        
+    Button:
+        text: "go home"
+        size: "100dp","30dp"
+        size_hint: None,None
+        pos_hint: {"x" : .37 , "y" : .35}
+        on_release: app.root.current = "First"
+
+<OptionScreen>:
+    name: "Option"
+    
+    size: "360dp","640dp"
+    size_hint: None,None
+    Image:
+        source:"images/background.png"
+        
+    Button:
+        background_normal : "images/backspace.png"
+        size: "30dp","30dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.88 , "y" : .88}
+        on_release:
+            root.manager.transition.direction = 'right'
+            root.manager.current = "Ingame"
+
+<OptionWidget>:
+    BoxLayout:
+        
+        orientation: "vertical"
+        size: "320dp","300dp"
+        size_hint: None,None
+        pos_hint: {"center_x" : 0.5, "center_y" : 0.5}
