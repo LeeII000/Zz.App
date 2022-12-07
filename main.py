@@ -44,7 +44,7 @@ class Sheep(Widget):
             self.sheep.pos = (x,y)
             print(x,y)
             
-class MyApp(App):
+class MainApp(App):
     pass
 
 MyApp().run()
