@@ -17,11 +17,35 @@ SCManager:
         
     Button:
         text: "go to sleep"
-        size: "100dp","30dp"
+        size: "150dp","44dp"
         size_hint: None,None
-        pos_hint: {"x" : .37 , "y" : .35}
+        pos_hint: {"x" : .31 , "y" : .35}
         on_release:
             root.manager.current = "Ingame"  
+
+        Image:
+            source: 'images/prototype-11.png'
+            size: "180dp","60dp"
+            pos: root.width*0.27, root.height*0.3395
+
+        Image:
+            source: 'images/logo.png'
+            size: "150dp", "150dp"
+            pos: root.width*0.31, root.height*0.5
+
+    Button:
+        background_normal : "images/자산 3.png"
+        size: "30dp","30dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.88 , "y" : .88}
+        on_release:
+            root.manager.transition.direction = 'left'
+            root.manager.current = "Option"
+    Button:
+        background_normal : "images/s자산 6.png"
+        size: "30dp","30dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.78 , "y" : .88}
         
 <Ingame>:
     name: "Ingame"
@@ -69,13 +93,23 @@ SCManager:
         source:"images/background.png"
         
     Button:
-        background_normal : "images/backspace.png"
+        text: ""
         size: "30dp","30dp"
         size_hint: None,None
         pos_hint: {"x" : 0.88 , "y" : .88}
         on_release:
             root.manager.transition.direction = 'right'
             root.manager.current = "Ingame"
+
+        Image:
+            source: "images/backspace1.png"
+            size: "30dp","30dp"
+            pos: root.width*0.88, root.height*0.88
+
+        Image:
+            source: "images/optionbackground.png"
+            size: "120dp", "40dp"
+            pos: root.width*0.05, root.height*0.8
 
 <OptionWidget>:
     BoxLayout:
