@@ -26,7 +26,13 @@ class OptionWidget(BoxLayout):
 
 class Ingame(Screen):
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)           
+        super().__init__(**kwargs)  
+
+    def play_music(self):
+        music = SoundLoader.load('songs/an_ending.mp3')
+
+        if music:
+            music.play()         
 
 class Sheep(Widget):
 
