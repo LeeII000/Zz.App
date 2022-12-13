@@ -13,7 +13,7 @@ SCManager:
     size: "360dp","640dp"
     size_hint: None,None
     Image:
-        source:"images/background.png"
+        source:"images/background2.png"
         
     Button:
         text: "go to sleep"
@@ -29,7 +29,7 @@ SCManager:
             pos: root.width*0.27, root.height*0.3395
 
         Image:
-            source: 'images/logo.png'
+            source: 'images/prototype-12.png'
             size: "150dp", "150dp"
             pos: root.width*0.31, root.height*0.5
 
@@ -94,7 +94,7 @@ SCManager:
     size: "360dp","640dp"
     size_hint: None,None
     Image:
-        source:"images/background.png"
+        source:"images/background2.png"
         
     Button:
         text: ""
@@ -110,15 +110,15 @@ SCManager:
             size: "30dp","30dp"
             pos: root.width*0.88, root.height*0.88
 
+<OptionWidget>:
+    BoxLayout:
+        orientation: "vertical"
+        size: "320dp","300dp"
+        size_hint: None,None
+        pos_hint: {"center_x" : 0.9, "center_y" : 0.9}
+
         Image:
             source: "images/optionbackground.png"
             size: "120dp", "40dp"
             pos: root.width*0.05, root.height*0.8
 
-<OptionWidget>:
-    BoxLayout:
-        
-        orientation: "vertical"
-        size: "320dp","300dp"
-        size_hint: None,None
-        pos_hint: {"center_x" : 0.5, "center_y" : 0.5}
