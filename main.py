@@ -26,19 +26,13 @@ class OptionWidget(BoxLayout):
 
 class Ingame(Screen):
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)  
-
-    def play_music(self):
-        music = SoundLoader.load('songs/an_ending.mp3')
-
-        if music:
-            music.play()         
+        super().__init__(**kwargs)           
 
 class Sheep(Widget):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.sheep_size = dp(120)
+        self.sheep_size = dp(100)
         with self.canvas:
             self.sheep = Rectangle(pos=self.center,size=(self.sheep_size,self.sheep_size),source = "images/prototype-10.png")
         Clock.schedule_interval(self.pose,1/10)
@@ -46,10 +40,10 @@ class Sheep(Widget):
         
     def pose(self,dt):
         x,y = self.sheep.pos 
-        if x >= 250:
+        if x >= 130:
             self.sheep.pos = (x,y)
         else:
-            self.sheep.pos = (x+2,math.sin(x)*2+240)
+            self.sheep.pos = (x+2,math.sin(x)*2+100)
         
     def on_touch_down(self, touch):
         super().on_touch_down(touch)
@@ -61,6 +55,7 @@ class Sheep(Widget):
             x = -100
             y = 50
             self.sheep.pos = (x,y)
+   
 
 class SCManager(ScreenManager):
     pass
