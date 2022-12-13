@@ -56,10 +56,6 @@ class Sheep(Widget):
             y = 50
             self.sheep.pos = (x,y)
 
-    # def change_Vid(self, next_vid):
-    #     self.ids.video.vid = next_vid
-    #     return self.ids.Video.vid
-
 class SCManager(ScreenManager):
     pass
             

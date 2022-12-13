@@ -136,11 +136,10 @@ SCManager:
         size: "80dp", "140dp"
         size_hint: None, None
         pos_hint: {"x" : 0.4 , "y" : .585}
-
         on_release:
             root.manager.transition.direction = 'right'
             root.manager.current = "Ingame"
-            root.change_Vid("pinksky.mp4")
+
 
         Video:
             source: "videos/pinksky.mp4"
@@ -148,8 +147,6 @@ SCManager:
             size_hint: None, None
             state: "play"
             pos: root.width*0.4, root.height*0.58
-            
-
 
 
     Button:
