@@ -79,7 +79,7 @@ SCManager:
     size: "360dp","640dp"
     size_hint: None,None
     Image:
-        source:"images/background.png"
+        source:"images/background2.png"
         
     Button:
         text: "go home"
@@ -121,4 +121,51 @@ SCManager:
             source: "images/optionbackground.png"
             size: "120dp", "40dp"
             pos: root.width*0.05, root.height*0.8
+
+    Button:
+        text: "Blue Sky"
+        size: "72dp","128dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.1 , "y" : 0.6}
+        on_release:
+
+        Video:
+            source: "videos/bluesky.mp4"
+            size: "72dp","128dp"
+            pos: root.width*0.1, root.height*0.6
+            state: "play"
+
+    Button:
+        text: "Green Sky"
+        size: "72dp","128dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.32 , "y" : 0.6}
+        on_release:
+
+        Video:
+            source: "videos/greensky.mp4"
+            size: "72dp","128dp"
+            pos: root.width*0.32, root.height*0.6
+            state: "play" 
+
+    Button:
+        text: "Pink Sky"
+        size: "72dp","128dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.54 , "y" : 0.6}
+        on_release:
+
+        Video:
+            source: "videos/pinksky.mp4"
+            size: "72dp","128dp"
+            pos: root.width*0.54, root.height*0.6
+            state: "play"    
+
+<OptionWidget>:
+    BoxLayout:
+        
+        orientation: "vertical"
+        size: "320dp","300dp"
+        size_hint: None,None
+        pos_hint: {"center_x" : 0.5, "center_y" : 0.5}
 
