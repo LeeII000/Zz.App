@@ -1,9 +1,17 @@
 SCManager:
     FirstScreen:
     EndingScreen:
-    OptionScreen:
+    OptionBlueScreen:
         OptionWidget:
-    Ingame:
+    OptionPinkScreen:
+        OptionWidget:
+    OptionGreenScreen:
+        OptionWidget:
+    IngameBlue:
+        Sheep:
+    IngamePink:
+        Sheep:
+    IngameGreen:
         Sheep:
     
     
@@ -21,7 +29,7 @@ SCManager:
         size_hint: None,None
         pos_hint: {"x" : .31 , "y" : .35}
         on_release:
-            root.manager.current = "Ingame"  
+            root.manager.current = "IngameBlue"  
 
         Image:
             source: 'images/prototype-11.png'
@@ -40,7 +48,8 @@ SCManager:
         pos_hint: {"x" : 0.88 , "y" : .88}
         on_release:
             root.manager.transition.direction = 'left'
-            root.manager.current = "Option"
+            root.manager.current = "OptionBlue"
+
 
     Button:
         background_normal : "images/s자산 6.png"
@@ -48,8 +57,8 @@ SCManager:
         size_hint: None,None
         pos_hint: {"x" : 0.78 , "y" : .88}
         
-<Ingame>:
-    name: "Ingame"
+<IngameBlue>:
+    name: "IngameBlue"
     
     size: "360dp","640dp"
     size_hint: None,None
@@ -59,6 +68,7 @@ SCManager:
         size: "360dp", "640dp"
         size_hint: None, None
         state: "play"
+        option: {'eos' : 'loop'}
 
     Button:
         background_normal : "images/자산 3.png"
@@ -67,7 +77,66 @@ SCManager:
         pos_hint: {"x" : 0.88 , "y" : .88}
         on_release:
             root.manager.transition.direction = 'left'
-            root.manager.current = "Option"
+            root.manager.current = "OptionBlue"
+                
+
+    Button:
+        background_normal : "images/s자산 6.png"
+        size: "30dp","30dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.78 , "y" : .88}
+
+
+<IngamePink>:
+    name: "IngamePink"
+    
+    size: "360dp","640dp"
+    size_hint: None,None
+
+    Video:
+        source: "videos/pinksky.mp4"
+        size: "360dp", "640dp"
+        size_hint: None, None
+        state: "play"
+        option: {'eos' : 'loop'}
+
+    Button:
+        background_normal : "images/자산 3.png"
+        size: "30dp","30dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.88 , "y" : .88}
+        on_release:
+            root.manager.transition.direction = 'left'
+            root.manager.current = "OptionPink"
+                
+
+    Button:
+        background_normal : "images/s자산 6.png"
+        size: "30dp","30dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.78 , "y" : .88}
+
+<IngameGreen>:
+    name: "IngameGreen"
+    
+    size: "360dp","640dp"
+    size_hint: None,None
+
+    Video:
+        source: "videos/greensky.mp4"
+        size: "360dp", "640dp"
+        size_hint: None, None
+        state: "play"
+        option: {'eos' : 'loop'}
+
+    Button:
+        background_normal : "images/자산 3.png"
+        size: "30dp","30dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.88 , "y" : .88}
+        on_release:
+            root.manager.transition.direction = 'left'
+            root.manager.current = "OptionGreen"
                 
 
     Button:
@@ -91,8 +160,8 @@ SCManager:
         pos_hint: {"x" : .37 , "y" : .35}
         on_release: app.root.current = "First"
 
-<OptionScreen>:
-    name: "Option"
+<OptionBlueScreen>:
+    name: "OptionBlue"
     
     size: "360dp","640dp"
     size_hint: None,None
@@ -106,7 +175,7 @@ SCManager:
         pos_hint: {"x" : 0.88 , "y" : .88}
         on_release:
             root.manager.transition.direction = 'right'
-            root.manager.current = "Ingame"
+            root.manager.current = "IngameBlue"
 
         Image:
             source: "images/backspace1.png"
@@ -123,6 +192,9 @@ SCManager:
         size: "80dp", "140dp"
         size_hint: None, None
         pos_hint: {"x" : 0.1 , "y" : .585}
+        on_release:
+            root.manager.transition.direction = 'right'
+            root.manager.current = "IngameBlue"
 
         Video:
             source: "videos/bluesky.mp4"
@@ -130,6 +202,7 @@ SCManager:
             size_hint: None, None
             state: "play"
             pos: root.width*0.1, root.height*0.58
+            option: {'eos' : 'loop'}
 
     Button:
         test: ""
@@ -138,7 +211,7 @@ SCManager:
         pos_hint: {"x" : 0.4 , "y" : .585}
         on_release:
             root.manager.transition.direction = 'right'
-            root.manager.current = "Ingame"
+            root.manager.current = "IngamePink"
 
 
         Video:
@@ -147,6 +220,7 @@ SCManager:
             size_hint: None, None
             state: "play"
             pos: root.width*0.4, root.height*0.58
+            option: {'eos' : 'loop'}
 
 
     Button:
@@ -154,6 +228,9 @@ SCManager:
         size: "80dp", "140dp"
         size_hint: None, None
         pos_hint: {"x" : 0.7 , "y" : .585}
+        on_release:
+            root.manager.transition.direction = 'right'
+            root.manager.current = "IngameGreen"
 
         Video:
             source: "videos/greensky.mp4"
@@ -161,7 +238,167 @@ SCManager:
             size_hint: None, None
             state: "play"
             pos: root.width*0.7, root.height*0.58
+            option: {'eos' : 'loop'}
 
+<OptionPinkScreen>:
+    name: "OptionPink"
+    
+    size: "360dp","640dp"
+    size_hint: None,None
+    Image:
+        source:"images/background.png"
+        
+    Button:
+        text: ""
+        size: "30dp","30dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.88 , "y" : .88}
+        on_release:
+            root.manager.transition.direction = 'right'
+            root.manager.current = "IngamePink"
+
+        Image:
+            source: "images/backspace1.png"
+            size: "30dp","30dp"
+            pos: root.width*0.88, root.height*0.88
+
+        Image:
+            source: "images/optionbackground.png"
+            size: "120dp", "40dp"
+            pos: root.width*0.05, root.height*0.8
+
+    Button:
+        test: ""
+        size: "80dp", "140dp"
+        size_hint: None, None
+        pos_hint: {"x" : 0.1 , "y" : .585}
+        on_release:
+            root.manager.transition.direction = 'right'
+            root.manager.current = "IngameBlue"
+
+        Video:
+            source: "videos/bluesky.mp4"
+            size: "80dp", "150dp"
+            size_hint: None, None
+            state: "play"
+            pos: root.width*0.1, root.height*0.58
+            option: {'eos' : 'loop'}
+
+    Button:
+        test: ""
+        size: "80dp", "140dp"
+        size_hint: None, None
+        pos_hint: {"x" : 0.4 , "y" : .585}
+        on_release:
+            root.manager.transition.direction = 'right'
+            root.manager.current = "IngamePink"
+
+
+        Video:
+            source: "videos/pinksky.mp4"
+            size: "80dp", "150dp"
+            size_hint: None, None
+            state: "play"
+            pos: root.width*0.4, root.height*0.58
+            option: {'eos' : 'loop'}
+
+
+    Button:
+        test: ""
+        size: "80dp", "140dp"
+        size_hint: None, None
+        pos_hint: {"x" : 0.7 , "y" : .585}
+        on_release:
+            root.manager.transition.direction = 'right'
+            root.manager.current = "IngameGreen"
+
+        Video:
+            source: "videos/greensky.mp4"
+            size: "80dp", "150dp"
+            size_hint: None, None
+            state: "play"
+            pos: root.width*0.7, root.height*0.58
+            option: {'eos' : 'loop'}
+
+<OptionGreenScreen>:
+    name: "OptionGreen"
+    
+    size: "360dp","640dp"
+    size_hint: None,None
+    Image:
+        source:"images/background.png"
+        
+    Button:
+        text: ""
+        size: "30dp","30dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.88 , "y" : .88}
+        on_release:
+            root.manager.transition.direction = 'right'
+            root.manager.current = "IngameGreen"
+
+        Image:
+            source: "images/backspace1.png"
+            size: "30dp","30dp"
+            pos: root.width*0.88, root.height*0.88
+
+        Image:
+            source: "images/optionbackground.png"
+            size: "120dp", "40dp"
+            pos: root.width*0.05, root.height*0.8
+
+    Button:
+        test: ""
+        size: "80dp", "140dp"
+        size_hint: None, None
+        pos_hint: {"x" : 0.1 , "y" : .585}
+        on_release:
+            root.manager.transition.direction = 'right'
+            root.manager.current = "IngameBlue"
+
+        Video:
+            source: "videos/bluesky.mp4"
+            size: "80dp", "150dp"
+            size_hint: None, None
+            state: "play"
+            pos: root.width*0.1, root.height*0.58
+            option: {'eos' : 'loop'}
+
+    Button:
+        test: ""
+        size: "80dp", "140dp"
+        size_hint: None, None
+        pos_hint: {"x" : 0.4 , "y" : .585}
+        on_release:
+            root.manager.transition.direction = 'right'
+            root.manager.current = "IngamePink"
+
+
+        Video:
+            source: "videos/pinksky.mp4"
+            size: "80dp", "150dp"
+            size_hint: None, None
+            state: "play"
+            pos: root.width*0.4, root.height*0.58
+            option: {'eos' : 'loop'}
+
+
+    Button:
+        test: ""
+        size: "80dp", "140dp"
+        size_hint: None, None
+        pos_hint: {"x" : 0.7 , "y" : .585}
+        on_release:
+            root.manager.transition.direction = 'right'
+            root.manager.current = "IngameGreen"
+
+        Video:
+            source: "videos/greensky.mp4"
+            size: "80dp", "150dp"
+            size_hint: None, None
+            state: "play"
+            pos: root.width*0.7, root.height*0.58
+            option: {'eos' : 'loop'}
 
 <OptionWidget>:
     BoxLayout:
