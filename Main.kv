@@ -21,7 +21,8 @@ SCManager:
         size_hint: None,None
         pos_hint: {"x" : .31 , "y" : .35}
         on_release:
-            root.manager.current = "Ingame"  
+            root.manager.current = "Ingame"
+            root.play_music()
 
         Image:
             source: 'images/prototype-11.png'
@@ -41,12 +42,15 @@ SCManager:
         on_release:
             root.manager.transition.direction = 'left'
             root.manager.current = "Option"
+
     Button:
         background_normal : "images/s자산 6.png"
         size: "30dp","30dp"
         size_hint: None,None
         pos_hint: {"x" : 0.78 , "y" : .88}
+        on_press: root.play_or_stop()
         
+
 <Ingame>:
     name: "Ingame"
     
@@ -55,11 +59,11 @@ SCManager:
 
     Video:
         source: "videos/bluesky.mp4"
+        allow_stretch: True
         size: "360dp", "640dp"
         size_hint: None, None
         state: "play"
         options: {'eos' : 'loop'}
-
 
     Button:
         background_normal : "images/자산 3.png"
@@ -69,13 +73,15 @@ SCManager:
         on_release:
             root.manager.transition.direction = 'left'
             root.manager.current = "Option"
+
     Button:
         background_normal : "images/s자산 6.png"
         size: "30dp","30dp"
         size_hint: None,None
         pos_hint: {"x" : 0.78 , "y" : .88}
-        on_release: root.play_music()
+        on_release: root.stop_music()
         
+
 <EndingScreen>:
     name: "Ending"
     
@@ -91,6 +97,7 @@ SCManager:
         pos_hint: {"x" : .37 , "y" : .35}
         on_release: app.root.current = "First"
 
+
 <OptionScreen>:
     name: "Option"
     
@@ -103,7 +110,7 @@ SCManager:
         text: ""
         size: "30dp","30dp"
         size_hint: None,None
-        pos_hint: {"x" : 0.88 , "y" : .88}
+        pos_hint: {"x" : 0.88 , "y" : 0.88}
         on_release:
             root.manager.transition.direction = 'right'
             root.manager.current = "Ingame"
@@ -112,6 +119,50 @@ SCManager:
             source: "images/backspace1.png"
             size: "30dp","30dp"
             pos: root.width*0.88, root.height*0.88
+
+    ToggleButton:
+        id: "music1"
+        text: "1"
+        size: "300dp","50dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.1 , "y" : 0.4}
+        on_press: root.play1()
+
+    ToggleButton:
+        id: "2"
+        text: "2"
+        size: "300dp","50dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.1 , "y" : 0.3}
+        on_press: root.play2()
+
+    ToggleButton:
+        id: "3"
+        text: "3"
+        size: "300dp","50dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.1 , "y" : 0.2}
+        on_press: root.play3()
+
+    ToggleButton:
+        id: "4"
+        text: "4"
+        size: "300dp","50dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.1 , "y" : 0.1}
+        on_press: root.play4()
+
+
+<Music>:
+    Button:
+        id: music_button
+        text: ""
+        background_normal : "images/s자산 6.png"
+        size: "30dp","30dp"
+        size_hint: None,None
+        pos_hint: {"x" : 0.78 , "y" : .88}
+        on_press: root.play_or_stop()
+
 
 <OptionWidget>:
     BoxLayout:
@@ -131,6 +182,7 @@ SCManager:
         size_hint: None,None
         pos_hint: {"x" : 0.1 , "y" : 0.6}
         on_release:
+            print('BlueSky')
 
         Video:
             source: "videos/bluesky.mp4"
@@ -145,6 +197,7 @@ SCManager:
         size_hint: None,None
         pos_hint: {"x" : 0.32 , "y" : 0.6}
         on_release:
+            print('GreenSky')
 
         Video:
             source: "videos/greensky.mp4"
@@ -159,19 +212,13 @@ SCManager:
         size_hint: None,None
         pos_hint: {"x" : 0.54 , "y" : 0.6}
         on_release:
+            print('PinkSky')
 
         Video:
             source: "videos/pinksky.mp4"
             size: "72dp","128dp"
             pos: root.width*0.54, root.height*0.6
             state: "play"
-            options: {'eos' : 'loop'}    
-
-<OptionWidget>:
-    BoxLayout:
-        
-        orientation: "vertical"
-        size: "320dp","300dp"
-        size_hint: None,None
-        pos_hint: {"center_x" : 0.5, "center_y" : 0.5}
+            options: {'eos' : 'loop'}
+ 
 
