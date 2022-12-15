@@ -3,6 +3,10 @@ SCManager:
     EndingScreen:
     OptionScreen:
         OptionWidget:
+        Music1:
+        Music2:
+        Music3:
+        Music4:
     Ingame:
         Sheep:
     
@@ -120,48 +124,37 @@ SCManager:
             size: "30dp","30dp"
             pos: root.width*0.88, root.height*0.88
 
+<Music1>:
     ToggleButton:
-        id: "music1"
-        text: "1"
+        text: "Rain Sound"
         size: "300dp","50dp"
         size_hint: None,None
-        pos_hint: {"x" : 0.1 , "y" : 0.4}
-        on_press: root.play1()
+        pos: root.width*0.1, root.height*0.4
+        on_press: root.music1()
 
+<Music2>:
     ToggleButton:
-        id: "2"
-        text: "2"
+        text: "Firecamp Sound"
         size: "300dp","50dp"
         size_hint: None,None
-        pos_hint: {"x" : 0.1 , "y" : 0.3}
-        on_press: root.play2()
+        pos: root.width*0.1, root.height*0.3
+        on_press: root.music2()
 
+<Music3>:
     ToggleButton:
-        id: "3"
-        text: "3"
+        text: "Song 1"
         size: "300dp","50dp"
         size_hint: None,None
-        pos_hint: {"x" : 0.1 , "y" : 0.2}
-        on_press: root.play3()
+        pos: root.width*0.1, root.height*0.2
+        on_press: root.music3()
 
+<Music4>:
     ToggleButton:
-        id: "4"
-        text: "4"
+        text: "Song 2"
         size: "300dp","50dp"
         size_hint: None,None
-        pos_hint: {"x" : 0.1 , "y" : 0.1}
-        on_press: root.play4()
-
-
-<Music>:
-    Button:
-        id: music_button
-        text: ""
-        background_normal : "images/s자산 6.png"
-        size: "30dp","30dp"
-        size_hint: None,None
-        pos_hint: {"x" : 0.78 , "y" : .88}
-        on_press: root.play_or_stop()
+        pos: root.width*0.1, root.height*0.1
+        on_press: root.music4()
 
 
 <OptionWidget>:

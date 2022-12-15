@@ -10,6 +10,7 @@ from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.properties import Clock
 from kivy.metrics import dp
 from kivy.graphics import Rectangle
+from kivy.uix.togglebutton import ToggleButton
 import math
 
 class FirstScreen(Screen):
@@ -24,35 +25,7 @@ class EndingScreen(Screen):
     pass
 
 class OptionScreen(Screen):
-    def play1(self):
-        music = SoundLoader.load('songs/an_ending.mp3')
-
-        if self.ids.music1.state == 'down':
-            self.ids.music1.text = "1"
-            music.play()
-        else:
-            music.unload()
-
-    def play2(self):
-        music = SoundLoader.load('songs/rain.mp3')
-
-        if music:
-            music.loop = True
-            music.play()
-    
-    def play3(self):
-        music = SoundLoader.load('songs/3.mp3')
-
-        if music:
-            music.loop = True
-            music.play()
-
-    def play4(self):
-        music = SoundLoader.load('songs/fire.mp3')
-
-        if music:
-            music.loop = True
-            music.play()
+    pass
 
 class OptionWidget(BoxLayout):
     pass
@@ -60,13 +33,6 @@ class OptionWidget(BoxLayout):
 class Ingame(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)  
-
-    def stop_music(self):
-        music = SoundLoader.load('songs/an_ending.mp3')
-
-        music.play()
-        music.stop()
-        music.unload()
 
 class Sheep(Widget):
 
@@ -96,18 +62,45 @@ class Sheep(Widget):
             y = 50
             self.sheep.pos = (x,y)
 
-class Music(Sound):
+class Music1(Widget):
+    song1 = SoundLoader.load('songs/rain.mp3')
     def music1(self):
-        music1 = SoundLoader.load('songs/an_ending.mp3')
 
+        if Music1.song1.state == 'stop':
+            Music1.song1.play()
+        else:
+            Music1.song1.stop()
+            Music1.song1.unload()
+
+class Music2(Widget):
+    song2 = SoundLoader.load('songs/fire.mp3')
     def music2(self):
-        music2 = SoundLoader.load('songs/rain.mp3')
 
+        if Music2.song2.state == 'stop':
+            Music2.song2.play()
+        else:
+            Music2.song2.stop()
+            Music2.song2.unload()
+
+class Music3(Widget):
+    song3 = SoundLoader.load('songs/3.mp3')
     def music3(self):
-        music3 = SoundLoader.load('songs/3.mp3')
 
+        if Music3.song3.state == 'stop':
+            Music3.song3.play()
+        else:
+            Music3.song3.stop()
+            Music3.song3.unload()
+
+class Music4(Widget):
+    song4 = SoundLoader.load('songs/an_ending.mp3')
     def music4(self):
-        music4 = SoundLoader.load('songs/fire.mp3')
+
+        if Music4.song4.state == 'stop':
+            Music4.song4.play()
+        else:
+            Music4.song4.stop()
+            Music4.song4.unload()
 
 class SCManager(ScreenManager):
     pass
