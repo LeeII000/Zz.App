@@ -16,9 +16,6 @@ import math
 class FirstScreen(Screen):
     pass
 
-class EndingScreen(Screen):
-    pass
-
 class OptionScreen(Screen):
     pass
 
