@@ -4,9 +4,13 @@ SCManager:
     OptionScreen:
     # 화면에서 main.py를 통해 불러올 요소를 설정정
         Music1:
+            id: mus1
         Music2:
+            id: mus2
         Music3:
+            id: mus3
         Music4:
+            id: mus4
     IngameBlue:
         Sheep:
     IngamePink:
@@ -86,11 +90,15 @@ SCManager:
             pos: root.width*0.88, root.height*0.88 # 이미지의 위치
                 
 
-    Button: # 사운드 버튼 설정 
+    ToggleButton: # 사운드 버튼 설정
+        id : "tg"
         background_normal : "images/s자산 6.png"
+        background_down : "images/prototype-07.png"
         size: "30dp","30dp"
         size_hint: None,None
         pos_hint: {"x" : 0.78 , "y" : .88}
+        on_state: root.Volume_Blue(self)
+
         
 
 <IngamePink>: 
@@ -123,11 +131,13 @@ SCManager:
             pos: root.width*0.88, root.height*0.88 # 이미지의 위치
                 
 
-    Button: # 사운드 버튼 설정 
+    ToggleButton: # 사운드 버튼 설정 
         background_normal : "images/s자산 6.png"
+        background_down : "images/prototype-07.png"
         size: "30dp","30dp"
         size_hint: None,None
         pos_hint: {"x" : 0.78 , "y" : .88}
+        on_state: root.Volume_Pink(self)
 
 
 <IngameGreen>:
@@ -161,11 +171,13 @@ SCManager:
             pos: root.width*0.88, root.height*0.88 # 이미지의 위치
                 
 
-    Button: # 사운드 버튼 설정 
+    ToggleButton: # 사운드 버튼 설정 
         background_normal : "images/s자산 6.png"
+        background_down : "images/prototype-07.png"
         size: "30dp","30dp"
         size_hint: None,None
         pos_hint: {"x" : 0.78 , "y" : .88}
+        on_state: root.Volume_Green(self)
 
 
 <OptionScreen>:

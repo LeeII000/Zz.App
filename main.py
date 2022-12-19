@@ -19,18 +19,84 @@ class FirstScreen(Screen):
 class OptionScreen(Screen):
     pass
 
-class IngameBlue(Screen):
+class IngameBlue(Screen, Widget):
+     def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+     def Volume_Blue(self, widget): 
+        if widget.state == "normal":
+            if self.parent.ids.mus1.song.state == "play":
+                self.parent.ids.mus1.volume_one()
+                print("i")
+            elif self.parent.ids.mus2.song.state == "play":
+                self.parent.ids.mus2.volume_one()
+            elif self.parent.ids.mus3.song.state == "play":
+                self.parent.ids.mus3.volume_one()
+            else:
+                self.parent.ids.mus4.volume_one()
+        else:
+            if self.parent.ids.mus1.song.state == "play":
+                self.parent.ids.mus1.volume_Zero()
+                print("i")
+            elif self.parent.ids.mus2.song.state == "play":
+                self.parent.ids.mus2.volume_Zero()
+            elif self.parent.ids.mus3.song.state == "play":
+                self.parent.ids.mus3.volume_Zero()
+            else:
+                self.parent.ids.mus4.volume_Zero()
+
+
+class IngamePink(Screen, Widget):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-class IngamePink(Screen):
+    def Volume_Pink(self, widget): 
+        if widget.state == "normal":
+            if self.parent.ids.mus1.song.state == "play":
+                self.parent.ids.mus1.volume_one()
+            elif self.parent.ids.mus2.song.state == "play":
+                self.parent.ids.mus2.volume_one()
+            elif self.parent.ids.mus3.song.state == "play":
+                self.parent.ids.mus3.volume_one()
+            else:
+                self.parent.ids.mus4.volume_one()
+        else:
+            if self.parent.ids.mus1.song.state == "play":
+                self.parent.ids.mus1.volume_Zero()
+            elif self.parent.ids.mus2.song.state == "play":
+                self.parent.ids.mus2.volume_Zero()
+            elif self.parent.ids.mus3.song.state == "play":
+                self.parent.ids.mus3.volume_Zero()
+            else:
+                self.parent.ids.mus4.volume_Zero()
+
+ 
+
+class IngameGreen(Screen, Widget):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
+    def Volume_Green(self, widget): 
+        if widget.state == "normal":
+            if self.parent.ids.mus1.song.state == "play":
+                self.parent.ids.mus1.volume_one()
+            elif self.parent.ids.mus2.song.state == "play":
+                self.parent.ids.mus2.volume_one()
+            elif self.parent.ids.mus3.song.state == "play":
+                self.parent.ids.mus3.volume_one()
+            else:
+                self.parent.ids.mus4.volume_one()
+        else:
+            if self.parent.ids.mus1.song.state == "play":
+                self.parent.ids.mus1.volume_Zero()
+            elif self.parent.ids.mus2.song.state == "play":
+                self.parent.ids.mus2.volume_Zero()
+            elif self.parent.ids.mus3.song.state == "play":
+                self.parent.ids.mus3.volume_Zero()
+            else:
+                self.parent.ids.mus4.volume_Zero()
 
-class IngameGreen(Screen):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)  
+
 
 class Sheep(Widget):
 
@@ -61,44 +127,64 @@ class Sheep(Widget):
             self.sheep.pos = (x,y)
 
 class Music1(Widget):
-    song1 = SoundLoader.load('songs/rain.mp3')
+    song = SoundLoader.load('songs/rain.mp3')
     def music1(self):
 
-        if Music1.song1.state == 'stop':
-            Music1.song1.play()
+        if Music1.song.state == 'stop':
+            Music1.song.play()
         else:
-            Music1.song1.stop()
-            Music1.song1.unload()
+            Music1.song.stop()
+            Music1.song.unload()
+            
+    def volume_Zero(self):
+        Music1.song.volume = 0
+    def volume_one(self):
+        Music1.song.volume = 1
 
 class Music2(Widget):
-    song2 = SoundLoader.load('songs/fire.mp3')
+    song = SoundLoader.load('songs/fire.mp3')
     def music2(self):
 
-        if Music2.song2.state == 'stop':
-            Music2.song2.play()
+        if Music2.song.state == 'stop':
+            Music2.song.play()
         else:
-            Music2.song2.stop()
-            Music2.song2.unload()
+            Music2.song.stop()
+            Music2.song.unload()
+            
+    def volume_Zero(self):
+        Music2.song.volume = 0
+    def volume_one(self):
+        Music2.song.volume = 1
 
 class Music3(Widget):
-    song3 = SoundLoader.load('songs/3.mp3')
+    song = SoundLoader.load('songs/3.mp3')
     def music3(self):
 
-        if Music3.song3.state == 'stop':
-            Music3.song3.play()
+        if Music3.song.state == 'stop':
+            Music3.song.play()
         else:
-            Music3.song3.stop()
-            Music3.song3.unload()
+            Music3.song.stop()
+            Music3.song.unload()
+
+    def volume_Zero(self):
+        Music3.song.volume = 0
+    def volume_one(self):
+        Music3.song.volume = 1
 
 class Music4(Widget):
-    song4 = SoundLoader.load('songs/an_ending.mp3')
+    song = SoundLoader.load('songs/an_ending.mp3')
     def music4(self):
 
-        if Music4.song4.state == 'stop':
-            Music4.song4.play()
+        if Music4.song.state == 'stop':
+            Music4.song.play()
         else:
-            Music4.song4.stop()
-            Music4.song4.unload()
+            Music4.song.stop()
+            Music4.song.unload()
+
+    def volume_Zero(self):
+        Music4.song.volume = 0
+    def volume_one(self):
+        Music4.song.volume = 1
 
 class SCManager(ScreenManager):
     pass
