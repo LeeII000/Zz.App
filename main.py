@@ -114,9 +114,6 @@ class Sheep(Widget):
             self.sheep.pos = (x,y)
         else:
             self.sheep.pos = (x+2,math.sin(x)*2+50)
-        
-    def on_touch_down(self, touch):
-        super().on_touch_down(touch)
 
     def on_touch_up(self, touch):
         super().on_touch_up(touch)
